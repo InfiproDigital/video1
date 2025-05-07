@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <title>Landing Page</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+
+    section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .video-section video,
+    .video-section iframe {
+      width: 90vw;
+      max-width: 1000px;
+      height: 500px;
+      margin-top: 20px;
+    }
+
+    .button {
+      background: #fff;
+      color: #000;
+      padding: 15px 30px;
+      margin: 20px 0;
+      display: inline-block;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .reference-grid {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .reference {
+      background: #fff;
+      color: #000;
+      padding: 15px;
+      max-width: 250px;
+      border-radius: 5px;
+    }
+
+    .form-section {
+      background: #fff;
+      color: #000;
+    }
+
+    .form-step {
+      display: none;
+    }
+
+    .form-step.active {
+      display: block;
+    }
+
+    .ps, .faq {
+      font-size: 0.9em;
+      opacity: 0.8;
+      margin-top: 40px;
+    }
+
+    .delayed-content {
+      display: none;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Úvodní sekce s videem -->
+<section class="video-section">
+  <h1>HEADLINE</h1>
+  <h2>SUBHEADLINE</h2>
+  <iframe src="https://www.youtube.com/embed/VIDEO_ID?autoplay=1&mute=1" frameborder="0" allowfullscreen></iframe>
+</section>
+
+<!-- VŠE POD VIDEEM BUDE NEVIDITELNÉ PO 5 SEKUND -->
+<div id="delayedContent" class="delayed-content">
+
+  <!-- Urgence Button -->
+  <section>
+    <a href="#form-start" class="button">Chci spolupráci 🔥</a>
+  </section>
+
+  <!-- Reference -->
+  <section>
+    <div class="reference-grid">
+      <div class="reference">REFERENCE 1 - Lorem ipsum...</div>
+      <div class="reference">REFERENCE 2 - Lorem ipsum...</div>
+      <div class="reference">REFERENCE 3 - Lorem ipsum...</div>
+    </div>
+  </section>
+
+  <!-- Copy -->
+  <section>
+    <div style="max-width: 600px; margin: 0 auto;">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in urna vel felis volutpat fermentum...</p>
+      <a href="#form-start" class="button">Začít nyní</a>
+    </div>
+  </section>
+
+  <!-- Další reference -->
+  <section>
+    <div class="reference-grid">
+      <div class="reference">REFERENCE 4</div>
+      <div class="reference">REFERENCE 5</div>
+      <div class="reference">REFERENCE 6</div>
+    </div>
+  </section>
+
+  <!-- FORMULÁŘ -->
+  <section id="form-start" class="form-section">
+    <h2>Začněme spolupráci</h2>
+    <div class="form-step active" id="step1">
+      <p>Zadej své údaje</p>
+      <input type="text" placeholder="Jméno"><br><br>
+      <input type="email" placeholder="Email"><br><br>
+      <input type="tel" placeholder="Telefon"><br><br>
+      <a class="button" onclick="showStep2()">Pokračovat</a>
+    </div>
+
+    <div class="form-step" id="step2">
+      <p>Jaký máte vztah k nemovitosti? Kdy chcete prodávat? Cenové rozpětí?</p>
+      <input type="text" placeholder="Vztah k nemovitosti"><br><br>
+      <input type="text" placeholder="Termín prodeje"><br><br>
+      <input type="text" placeholder="Cenové rozpětí"><br><br>
+      <a href="#form-start" class="button">Odeslat</a>
+    </div>
+  </section>
+
+  <!-- PS + FAQ -->
+  <section class="ps">
+    <p>PS: Lorem ipsum – osobní garance, jasné podmínky, žádné reklamní řeči.</p>
+  </section>
+
+  <section class="faq">
+    <h3>FAQ</h3>
+    <p><strong>Otázka 1:</strong> Lorem ipsum dolor sit amet?</p>
+    <p><strong>Odpověď:</strong> Consectetur adipiscing elit...</p>
+  </section>
+
+</div>
+
+<script>
+  // Odhalí delayed obsah po 5 sekundách
+  setTimeout(function () {
+    document.getElementById("delayedContent").style.display = "block";
+  }, 5000);
+
+  function showStep2() {
+    document.getElementById('step1').classList.remove('active');
+    document.getElementById('step2').classList.add('active');
+  }
+</script>
+
+</body>
+</html>
